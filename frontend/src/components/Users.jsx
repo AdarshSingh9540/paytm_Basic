@@ -1,11 +1,13 @@
 import { useState, useEffect} from "react";
 import axios from "axios";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+
 
 export const Users = () => {
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
-
+   
     useEffect(() => {
         axios.get(`http://localhost:3000/api/v1/user/bulk`)
             .then(response => {
@@ -43,8 +45,9 @@ export const Users = () => {
 };
 
 function User({ user }) {
-    if (!user) return null; 
 
+    const navigate = useNavigate();
+    if (!user) return null; 
     return (
         <div className="flex justify-between">
             <div className="flex">
@@ -58,7 +61,9 @@ function User({ user }) {
                 </div>
             </div>
             <div className="flex flex-col justify-center h-ful">
-                <Button label={"Send Money"} />
+                <Button onClick={(e)=>{
+                    navigate("/send?id="+user._id+"&name="+ user.firstname)
+                }} label={"Send Money"} />
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ function SignIn() {
         <InputBox label={"Password"} placeholder={"password"}/>
         <div className='pt-4'>
           <Button label={"Sign In"}/>
-          <ButtonWarning label={"Sign Up"} buttonText={"Sign in"} href={"/SignUp"} /> 
+          <ButtonWarning  buttonText={"Sign Up"} to={"/signup"} /> 
         </div>
       </div>
     </div>

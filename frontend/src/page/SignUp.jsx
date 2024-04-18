@@ -7,13 +7,14 @@ import Button from '../components/Button';
 import ButtonWarning from '../components/ButtonWarning';
 import SignIn from './SignIn'; 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
     const [firstname, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [lastname, setLastName] = useState("");
-
+   const navigate = useNavigate();
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
     };
@@ -66,6 +67,7 @@ function SignUp() {
                             });
                             localStorage.setItem("token",response.data.token)
                             localStorage.removeItem("token")
+                            navigate("/dashboard")
                         }} label={"Sign Up"} />
                         <ButtonWarning label={"Already have an account ?"} buttonText={"Sign in"} to={"/signin"} />
                     </div>
