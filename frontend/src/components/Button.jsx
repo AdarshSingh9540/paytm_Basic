@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Button({label}) {
+function Button({label, onClick}) {
   return (
     <div>
-         <button className='w-full bg-black text-white p-2 my-4 rounded-md'>{label}</button>
+         <button onClick={onClick} className='w-full bg-black text-white p-2 my-4 rounded-md'>{label}</button>
     </div>
   )
 }
 
-export default Button
+export default Button;

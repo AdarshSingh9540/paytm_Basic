@@ -114,17 +114,16 @@ router.put("/", authMiddleware, async (req, res) => {
         message: "Updated successfully"
     })
 })
-
 router.get("/bulk", async (req, res) => {
     const filter = req.query.filter || "";
 
     const users = await User.find({
         $or: [{
-            firstName: {
+            firstname: {
                 "$regex": filter
             }
         }, {
-            lastName: {
+            lastname: {
                 "$regex": filter
             }
         }]
@@ -139,5 +138,6 @@ router.get("/bulk", async (req, res) => {
         }))
     })
 })
+
 
 module.exports = router;

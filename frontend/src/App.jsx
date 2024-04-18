@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Import BrowserRouter, Routes, and Route
-import SignUp from "./page/SignUp";
-import SignIn from "./page/SignIn";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SignUp from './page/SignUp';
+import SignIn from './page/SignIn';
+import Dashboard from './page/Dashboard';
+import { SendMoney } from './page/Send';
 
 function App() {
   return (
@@ -9,7 +11,8 @@ function App() {
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        {/* Add more routes as needed */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/send" element={<SendMoney/>} />
       </Routes>
     </BrowserRouter>
   );
