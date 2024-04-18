@@ -66,7 +66,7 @@ function SignUp() {
                                 password: pass
                             });
                             localStorage.setItem("token",response.data.token)
-                            localStorage.removeItem("token")
+                          
                             navigate("/dashboard")
                         }} label={"Sign Up"} />
                         <ButtonWarning label={"Already have an account ?"} buttonText={"Sign in"} to={"/signin"} />
